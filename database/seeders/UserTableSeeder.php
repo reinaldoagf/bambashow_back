@@ -19,6 +19,7 @@ class UserTableSeeder extends Seeder
     	$user->email="admin@test.com";
     	$user->password=Hash::make("12345678");
     	$user->id_rol=1;
+    	$user->root=1;
         $user->save();
         $response = Http::get('https://jsonplaceholder.typicode.com/users');
         $elements = $response->json();

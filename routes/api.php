@@ -23,6 +23,7 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
 });
 Route::group(['middleware' => []], function() {
 	Route::get('/users', [UserController::class, 'all']);
+	Route::delete('/users/delete/{id}', [UserController::class, 'delete']);
     Route::get('/greeting', function () {
         return 'Hello World';
     });

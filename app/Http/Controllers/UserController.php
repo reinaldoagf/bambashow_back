@@ -24,4 +24,24 @@ class UserController extends Controller
             ], 500);
         }
     }
+    public function delete($id){
+        try {
+            $element = User::find($id);
+            if(is_null($element)){
+                return response()->json(['message'=>'El usuario no existente'],404);
+            }
+            $response = [
+                'message'=> 'Usuario eliminado satisfactoriamente',
+                'data' => $element,
+            ];
+            $element->delete();
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ha ocurrido un error al tratar de eliminar los datos.',
+                'error' => $e->getMessage(),
+                'linea' => $e->getLine()
+            ], 500);
+        }
+    }
 }

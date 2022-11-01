@@ -15,7 +15,9 @@ class AddIdRolToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('id_rol');
-            $table->foreign('id_rol')->references('id')->on('rols')->onDelete('CASCADE')->onUpdate('CASCADE');    
+            $table->foreign('id_rol')
+                ->references('id')->default(2)->on('rols')
+                ->onDelete('cascade');
         });
     }
 
