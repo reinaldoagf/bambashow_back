@@ -21,9 +21,11 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
     Route::post('login', 'App\Http\Controllers\AuthController@login');
     Route::post('signup', 'App\Http\Controllers\AuthController@signup');
 });
-Route::group(['middleware' => []], function() {
-	Route::get('/users', [UserController::class, 'all']);
-	Route::delete('/users/delete/{id}', [UserController::class, 'delete']);
+Route::group(['middleware' => [],'prefix' => 'users'], function() {
+	Route::get('/', [UserController::class, 'all']);
+	Route::get('/get/{id}', [UserController::class, 'get']);
+	Route::put('/update/{id}', [UserController::class, 'update']);
+	Route::delete('/delete/{id}', [UserController::class, 'delete']);
     Route::get('/greeting', function () {
         return 'Hello World';
     });

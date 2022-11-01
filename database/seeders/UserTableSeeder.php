@@ -14,6 +14,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker\Factory::create();
+
         $user=new User();
     	$user->name="admin";
     	$user->email="admin@test.com";
@@ -24,11 +26,13 @@ class UserTableSeeder extends Seeder
         $response = Http::get('https://jsonplaceholder.typicode.com/users');
         $elements = $response->json();
         foreach ($elements as $key => $value) {
-            $user=new User();
-            $user->name=$value["name"];
-            $user->email="client".$key."@test.com";
-            $user->password=Hash::make("12345678");
-            $user->id_rol=2;
+            $user = new User();
+            $user->name = $value["name"];
+            $user->email = "client".$key."@test.com";
+            $user->password = Hash::make("12345678");
+            $user->id_rol = 2;
+            $user->photo = $faker->imageUrl($width = 640, $height = 480);
+            $user->address = $value["address"]["street"] ? $value["address"]["street"] : null;
             $user->save(); 
         }
     }
