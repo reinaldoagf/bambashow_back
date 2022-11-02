@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RolController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,7 +28,11 @@ Route::group(['middleware' => [],'prefix' => 'users'], function() {
 	Route::get('/get/{id}', [UserController::class, 'get']);
 	Route::put('/update/{id}', [UserController::class, 'update']);
 	Route::delete('/delete/{id}', [UserController::class, 'delete']);
-    Route::get('/greeting', function () {
-        return 'Hello World';
-    });
+});
+
+Route::group(['middleware' => [],'prefix' => 'roles'], function() {
+	Route::get('/', [RolController::class, 'all']);
+	Route::get('/get/{id}', [RolController::class, 'get']);
+	Route::put('/update/{id}', [RolController::class, 'update']);
+	Route::delete('/delete/{id}', [RolController::class, 'delete']);
 });
