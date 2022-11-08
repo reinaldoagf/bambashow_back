@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,12 @@ Route::group(['middleware' => [],'prefix' => 'roles'], function() {
 	Route::get('/get/{id}', [RolController::class, 'get']);
 	Route::put('/update/{id}', [RolController::class, 'update']);
 	Route::delete('/delete/{id}', [RolController::class, 'delete']);
+});
+
+Route::group(['middleware' => [],'prefix' => 'providers'], function() {
+	Route::get('/', [ProviderController::class, 'all']);
+	Route::get('/get/{id}', [ProviderController::class, 'get']);
+	Route::post('/create', [ProviderController::class, 'create']);
+	Route::put('/update/{id}', [ProviderController::class, 'update']);
+	Route::delete('/delete/{id}', [ProviderController::class, 'delete']);
 });
