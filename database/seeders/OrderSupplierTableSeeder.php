@@ -1,10 +1,12 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use App\Models\OrderSupplier;
 use App\Models\Provider;
 use Faker\Factory;
-class ProviderTableSeeder extends Seeder
+class OrderSupplierTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,16 +14,14 @@ class ProviderTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {        
+    {
         $faker = Factory::create();
-
         foreach ([0,1,2,3,4,5] as $key => $value) {
-            $provider=new Provider();
-            $provider->name=$faker->name;
-            $provider->email=$faker->email;
-            $provider->phone_number=$faker->phoneNumber;
-            $provider->save();
+            $provider= Provider::inRandomOrder()->first();
+            $order = new OrderSupplier();
+            $order->message=$faker->text;
+            $order->id_provider=$provider->id;
+            $order->save();
         }
-
     }
 }

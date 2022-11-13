@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Provider;
+use App\Models\OrderSupplier;
 
+use PDF;
+use File;
 class ProviderController extends Controller
 {
     public function all(){
@@ -134,6 +138,49 @@ class ProviderController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Ha ocurrido un error al tratar de eliminar los datos.',
+                'error' => $e->getMessage(),
+                'linea' => $e->getLine()
+            ], 500);
+        }
+    }
+    public function orders(){
+        try {
+            $response = [
+                'message'=> 'Lista de pedidos a proveedores',
+                'data' => OrderSupplier::all(),
+            ];
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ha ocurrido un error al tratar de obtener los datos.',
+                'error' => $e->getMessage(),
+                'linea' => $e->getLine()
+            ], 500);
+        }
+    }
+    public function createOrder(){
+        $order= OrderSupplier::inRandomOrder()->first();
+        $path = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'? public_path().'\pdf' : public_path().'/pdf';
+		if(!File::exists($path)) {
+			File::makeDirectory($path, 0777, true, true);
+		}
+		$date=date("Y-m-d").'_'.date("H:i:s");
+		$filename=strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'? $path.'\order'.rand(0,50).'.pdf' : $path.'/order_'.$date.'.pdf';
+		$pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('pdfs.order-supplier',[
+		    'order'=>$order,
+		])->save($filename)->stream('download.pdf');
+
+	    // Mail::to($provider->email)->send(new SupplieInventoryComparative($filename));
+    }
+	public function  pdf()
+	{
+		try {
+            $order = OrderSupplier::inRandomOrder()->first();
+            // return view('pdfs.test');
+            return view('pdfs.order-supplier',compact('order'));
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ha ocurrido un error al tratar de guardar los datos.',
                 'error' => $e->getMessage(),
                 'linea' => $e->getLine()
             ], 500);
