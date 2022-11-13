@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\RawMaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,13 @@ Route::group(['middleware' => [],'prefix' => 'providers'], function() {
 	Route::delete('/delete/{id}', [ProviderController::class, 'delete']);
 	Route::get('/orders', [ProviderController::class, 'orders']);	
 	Route::get('/pdf', [ProviderController::class, 'pdf']);
+});
+
+
+Route::group(['middleware' => [],'prefix' => 'raw-material'], function() {
+	Route::get('/', [RawMaterialController::class, 'all']);
+	Route::get('/get/{id}', [RawMaterialController::class, 'get']);
+	Route::post('/create', [RawMaterialController::class, 'create']);
+	Route::put('/update/{id}', [RawMaterialController::class, 'update']);
+	Route::delete('/delete/{id}', [RawMaterialController::class, 'delete']);
 });
