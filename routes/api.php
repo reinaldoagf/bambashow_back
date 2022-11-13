@@ -45,7 +45,8 @@ Route::group(['middleware' => [],'prefix' => 'providers'], function() {
 	Route::post('/create', [ProviderController::class, 'create']);
 	Route::put('/update/{id}', [ProviderController::class, 'update']);
 	Route::delete('/delete/{id}', [ProviderController::class, 'delete']);
-	Route::get('/orders', [ProviderController::class, 'orders']);	
+	Route::get('/orders', [ProviderController::class, 'orders']);
+	Route::post('/orders/create', [ProviderController::class, 'createOrder']);	
 	Route::get('/pdf', [ProviderController::class, 'pdf']);
 });
 

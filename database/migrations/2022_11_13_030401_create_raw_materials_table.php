@@ -16,7 +16,6 @@ class CreateRawMaterialsTable extends Migration
         Schema::create('raw_materials', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }

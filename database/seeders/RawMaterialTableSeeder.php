@@ -20,7 +20,7 @@ class RawMaterialTableSeeder extends Seeder
                 "Material de vinil textil",
                 "Material de sublimación"
             ] as $key => $value) {
-            $rawMaterial=new RawMaterial();
+            $rawMaterial = new RawMaterial();
             $rawMaterial->name=$value;
             $rawMaterial->save();
         }

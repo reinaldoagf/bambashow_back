@@ -13,6 +13,7 @@ class OrderSupplier extends Model
         'message',
         'pdf',
         'status',
+        'id_provider'
     ];
     protected $with = ['provider'];
     public function provider()

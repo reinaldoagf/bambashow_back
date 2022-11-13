@@ -11,6 +11,5 @@ class RawMaterial extends Model
     
     protected $fillable = [
         'name',
-        'quantity',
     ];
 }
