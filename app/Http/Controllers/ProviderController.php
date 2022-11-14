@@ -170,24 +170,27 @@ class ProviderController extends Controller
         if($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
-        try {
+        try {            
             $element= OrderSupplier::create($request->all());
             $path = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'? public_path().'\pdf' : public_path().'/pdf';
             if(!File::exists($path)) {
                 File::makeDirectory($path, 0777, true, true);
             }
             $date=date("Y-m-d").'_'.date("H:i:s");
-            $filename=strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'? $path.'\order'.rand(0,50).'.pdf' : $path.'/order_'.$date.'.pdf';
+            $file = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'? '\pdf\order_'.$element->id.'.pdf' : '/pdf/order_'.$element->id.'.pdf';
+            $filename= public_path().$file;
             $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-            ->loadView('pdfs.test',['order'=>$element])
+            ->loadView('pdfs.order-supplier',['order'=>$element])
             ->save($filename)
-            ->stream('download.pdf'); /**/
-    
+            ->stream('download.pdf'); 
+            $element->filename = $filename;
+            $element->pdf = asset('/pdf/order_'.$element->id.'.pdf');
+            $element->update();
             // Mail::to($provider->email)->send(new SupplieInventoryComparative($filename));
 
             $response = [
                 'message'=> 'Pedido creado satisfactoriamente',
-                'data' => $element,
+                'data' => OrderSupplier::findOrFail($element->id),
             ];
             return response()->json($response, 200);
         } catch (\Exception $e) {

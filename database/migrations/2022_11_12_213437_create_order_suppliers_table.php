@@ -16,8 +16,9 @@ class CreateOrderSuppliersTable extends Migration
         Schema::create('order_suppliers', function (Blueprint $table) {
             $table->id();
             $table->string('message')->nullable();
+            $table->string('filename')->nullable();
             $table->string('pdf')->nullable();
-            $table->enum('status', ['en espera', 'aprobado', 'recibido', 'rechazado'])->default('en espera');
+            $table->enum('status', ['en espera', 'aprobado', 'recibido', 'rechazado'])->nullable()->default('en espera');
             $table->unsignedBigInteger('id_provider');
             $table->foreign('id_provider')
                 ->references('id')->default(2)->on('providers')

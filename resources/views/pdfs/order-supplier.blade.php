@@ -1072,10 +1072,10 @@
       <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
         <div class="column" style="margin-text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
-          @if($order['provider'])
-            <div style="Margin-left: 40px;Margin-right: 20px;Margin-top: 24px;">
-              <h2 class="size-24" style="Margin-top: 0;Margin-bottom: 16px;font-style: normal;font-weight: normal;color: #717c8a;font-size: 20px;line-height: 28px;" lang="x-size-24"><strong>Hola {{$order['provider']['name']}}, gusto en saludarte</strong></h2>
-            </div>
+          @if($order['provider']['name'])
+          <div style="Margin-left: 40px;Margin-right: 20px;Margin-top: 24px;">
+            <h2 class="size-24" style="Margin-top: 0;Margin-bottom: 16px;font-style: normal;font-weight: normal;color: #717c8a;font-size: 20px;line-height: 28px;" lang="x-size-24"><strong>Hola {{$order['provider']['name']}}</strong></h2>
+          </div>
           @endif
           <div style="Margin-left: 0px;Margin-right: 0px;Margin-bottom: 24px;">
             <div class="divider" style="display: block;font-size: 3px;line-height: 3px;Margin-left: auto;Margin-right: auto;width: 100%;background-color: #1db8af;">&nbsp;</div>
@@ -1088,9 +1088,9 @@
 
     <div class="layout three-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
       @if($order['message'])
-        <div class="layout__inner" style="color:#717c8a;background-color: #ffffff;padding-left:40px;padding-right:20px;font-family:helvetica neue;font-size: 14px;line-height: 24px;font-weight:400;">
-          {{$order['message']}}
-        </div>
+      <div class="layout__inner" style="color:#717c8a;background-color: #ffffff;padding-left:40px;padding-right:20px;font-family:helvetica neue;font-size: 14px;line-height: 24px;font-weight:400;">
+        {{$order['message']}}
+      </div>
       @endif
       <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;border-top:#e0e0e0 1px solid;border-bottom:#e0e0e0 1px solid;box-sizing: border-box;" emb-background-style>
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" emb-background-style><td style="width: 200px" valign="top" class="w160"><![endif]-->
@@ -1161,7 +1161,7 @@
           <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 600px;" class="w560"><![endif]-->
           <div class="column" style="text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: Lato,Tahoma,sans-serif;max-width: 600px;min-width: 320px;">
             <div>
-              <a href="https://analytics.qsearch.cc/linkbundle?vw=settings_billing">Bambashow.com</a>
+              <span>Bambashow</span>
             </div>
           </div>
         </div>
