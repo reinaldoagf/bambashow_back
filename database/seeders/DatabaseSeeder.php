@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             RolTableSeeder::class,
             UserTableSeeder::class,
             ProviderTableSeeder::class,
+            RawMaterialTableSeeder::class,
             OrderSupplierTableSeeder::class,
-            RawMaterialTableSeeder::class
         ]);
     }
 }

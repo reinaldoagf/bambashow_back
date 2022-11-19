@@ -21,7 +21,7 @@ class CreateOrderSuppliersTable extends Migration
             $table->enum('status', ['en espera', 'aprobado', 'recibido', 'rechazado'])->nullable()->default('en espera');
             $table->unsignedBigInteger('id_provider');
             $table->foreign('id_provider')
-                ->references('id')->default(2)->on('providers')
+                ->references('id')->on('providers')
                 ->onDelete('cascade');
             $table->timestamps();
         });

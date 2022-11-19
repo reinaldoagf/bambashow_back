@@ -996,6 +996,53 @@
       margin-right: auto;
       border: 1px solid #a1a1a1
     }
+
+    table {
+      background-color: #FFF;
+      color: #333;
+      font-family: sans-serif;
+      font-size: .9em;
+      font-weight: 300;
+      text-align: left;
+      line-height: 40px;
+      border-spacing: 0;
+      border: 1px solid #428bca;
+      cursor: pointer;
+      Margin: 0 auto;
+      max-width: 600px;
+      min-width: 320px;
+      width: 600px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+
+    thead tr:first-child {
+      background: #428bca;
+      color: #fff;
+      border: none;
+    }
+
+    th {
+      font-weight: bold;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding: 0 15px 0 20px;
+    }
+
+    tbody tr:hover {
+      background-color: #f0fbff;
+    }
+
+    tbody tr:last-child td {
+      border: none;
+    }
+
+    tbody td {
+      border-bottom: 1px solid #ddd;
+    }
   </style>
   <meta name="robots" content="noindex,nofollow" />
   <meta property="og:title" content="My First Campaign" />
@@ -1022,7 +1069,7 @@
       </div>
     </div>
 
-    <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+    <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;display: flex;flex-direction: column;">
       <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #307fb0;background-position: 0px 0px;background-image: url(https://trello-attachments.s3.amazonaws.com/574cdfb876aa19ff03c01424/1200x412/57ca4ffca60f7f513a0a355e41fdc00c/emailheader.png);background-repeat: repeat;">
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" style="background-color: #307fb0;background-position: 0px 0px;background-image: url(https://i1.createsend1.com/ei/d/23/F3F/93C/193718/csfinal/emailheader.png);background-repeat: repeat;"><td style="width: 600px" class="w560"><![endif]-->
         <div class="column" style="text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
@@ -1065,10 +1112,9 @@
         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
       </div>
     </div>
-
     <div style="line-height:20px;font-size:20px;">&nbsp;</div>
 
-    <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+    <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;display:flex;flex-direction:column;">
       <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
         <div class="column" style="margin-text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
@@ -1086,16 +1132,16 @@
       </div>
     </div>
 
-    <div class="layout three-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+    <div class="layout three-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;display:flex;flex-direction:column;">
       @if($order['message'])
-      <div class="layout__inner" style="color:#717c8a;background-color: #ffffff;padding-left:40px;padding-right:20px;font-family:helvetica neue;font-size: 14px;line-height: 24px;font-weight:400;">
+      <div class="layout__inner" style="color:#717c8a;background-color: #ffffff;padding-left:20px;padding-right:20px;font-family:helvetica neue;font-size: 14px;line-height: 24px;font-weight:400;padding-bottom:20px;">
         {{$order['message']}}
       </div>
       @endif
       <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;border-top:#e0e0e0 1px solid;border-bottom:#e0e0e0 1px solid;box-sizing: border-box;" emb-background-style>
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" emb-background-style><td style="width: 200px" valign="top" class="w160"><![endif]-->
 
-        <div class="column" style="text-align: left;color: #60666d;font-size: 12px;line-height: 21px;font-family: sans-serif;Float: left;max-width: 320px;min-width: 196px; width: 320px;width: calc(72200px - 12000%);border:#e0e0e0 1px solid;box-sizing: border-box;border-bottom: none;">
+        <!-- <div class="column" style="text-align: left;color: #60666d;font-size: 12px;line-height: 21px;font-family: sans-serif;Float: left;max-width: 320px;min-width: 196px; width: 320px;width: calc(72200px - 12000%);border:#e0e0e0 1px solid;box-sizing: border-box;border-bottom: none;">
 
 
 
@@ -1106,9 +1152,9 @@
             <p class="size-18" style="Margin-top: 10px;Margin-bottom: 20px;font-size: 18px;letter-spacing: 1px;line-height: 18px;text-align: center;font-weight:600" lang="x-size-18"><span style="color:#1db8af">test</span></p>
           </div>
 
-        </div>
+        </div> -->
         <!--[if (mso)|(IE)]></td><td style="width: 200px" valign="top" class="w160"><![endif]-->
-        <div class="column" style="text-align: left;color: #60666d;font-size: 12px;line-height: 21px;font-family: sans-serif;Float: left;max-width: 320px;min-width: 196px; width: 320px;width: calc(72200px - 12000%);border:#e0e0e0 1px solid;box-sizing: border-box;border-bottom: none;">
+        <!-- <div class="column" style="text-align: left;color: #60666d;font-size: 12px;line-height: 21px;font-family: sans-serif;Float: left;max-width: 320px;min-width: 196px; width: 320px;width: calc(72200px - 12000%);border:#e0e0e0 1px solid;box-sizing: border-box;border-bottom: none;">
 
           <div style="Margin-left: 20px;Margin-right: 20px;Margin-bottom: 16px;">
             <p style="Margin-top: 20px;Margin-bottom: 0;text-align: center;color:#9e9e9e;font-size: 13px;line-height: 10px;letter-spacing: 0.5px;font-weight: 600">截止日期</p>
@@ -1117,9 +1163,9 @@
             <p class="size-18" style="Margin-top: 10px;Margin-bottom: 20px;font-size: 18px;letter-spacing: 1px;line-height: 18px;text-align: center;font-weight:600" lang="x-size-18"><span style="color:#1db8af">test</span></p>
           </div>
 
-        </div>
+        </div> -->
         <!--[if (mso)|(IE)]></td><td style="width: 200px" valign="top" class="w160"><![endif]-->
-        <div class="column" style="text-align: left;color: #60666d;font-size: 12px;line-height: 21px;font-family: sans-serif;Float: left;max-width: 320px;min-width: 196px; width: 320px;width: calc(72200px - 12000%);border:#e0e0e0 1px solid;box-sizing: border-box;border-bottom: none;">
+        <!-- <div class="column" style="text-align: left;color: #60666d;font-size: 12px;line-height: 21px;font-family: sans-serif;Float: left;max-width: 320px;min-width: 196px; width: 320px;width: calc(72200px - 12000%);border:#e0e0e0 1px solid;box-sizing: border-box;border-bottom: none;">
 
           <div style="Margin-left: 20px;Margin-right: 20px;Margin-bottom: 16px;">
             <p style="Margin-top: 20px;Margin-bottom: 0;text-align: center;color:#9e9e9e;font-size: 13px;line-height: 10px;letter-spacing: 0.5px;font-weight: 600">總金額</p>
@@ -1128,7 +1174,7 @@
             <p class="size-18" style="Margin-top: 10px;Margin-bottom: 20px;font-size: 18px;letter-spacing: 1px;line-height: 18px;text-align: center;font-weight:600" lang="x-size-18"><span style="color:#1db8af">test</span></p>
           </div>
 
-        </div>
+        </div> -->
         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
       </div>
 
@@ -1137,9 +1183,9 @@
 
 
 
-      <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+      <!-- <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
         <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;">
-          <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 400px;" valign="top" class="w360"><![endif]-->
+          <#!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 400px;" valign="top" class="w360"><![endif]--#>
           <div class="column wide" style="text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: Lato,Tahoma,sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);">
             <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
 
@@ -1151,25 +1197,42 @@
               </div>
             </div>
           </div>
-          <!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" class="w160"><![endif]-->
+          <#!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" class="w160"><![endif]--#>
 
-          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+          <#!--[if (mso)|(IE)]></td></tr></table><![endif]--#>
         </div>
       </div>
       <div class="layout one-col email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
         <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;">
-          <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 600px;" class="w560"><![endif]-->
+          <#!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 600px;" class="w560"><![endif]--#>
           <div class="column" style="text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: Lato,Tahoma,sans-serif;max-width: 600px;min-width: 320px;">
             <div>
               <span>Bambashow</span>
             </div>
           </div>
         </div>
-        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-      </div>
+        <#!--[if (mso)|(IE)]></td></tr></table><![endif]--#>
+      </div> -->
     </div>
-    <div style="line-height:40px;font-size:40px;">&nbsp;</div>
-
+    <!-- <div style="line-height:40px;font-size:40px;">&nbsp;</div> -->
+    <table>
+      <thead>
+        <tr>
+          <th>Artículo</th>
+          <th>Cantidad</th>
+          <th>Metros cuadrados</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($order['items'] as $item)
+        <tr>
+          <td>{{$item['raw_material']['name']}}</td>
+          <td>{{$item['quantity']}}</td>
+          <td>{{$item['square_meter']}}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
   </div>
 </body>
 

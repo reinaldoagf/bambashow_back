@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Provider;
 use App\Models\OrderSupplier;
+use App\Models\OrderSupplierItem;
+use App\Models\RawMaterial;
 use PDF;
 use File;
 
@@ -159,6 +161,7 @@ class ProviderController extends Controller
         }
     }
     public function createOrder(Request $request){
+        
         $validator = Validator::make($request->all(), [
             'message' => 'required|string|max:45',
             'id_provider'=> 'required',
@@ -171,7 +174,21 @@ class ProviderController extends Controller
             return response()->json($validator->errors(), 400);
         }
         try {            
-            $element= OrderSupplier::create($request->all());
+            $element= OrderSupplier::create([
+                'message'=>$request->get('message'),
+                'id_provider'=>$request->get('id_provider'),
+            ]);
+            foreach ($request->get('items') as $key => $value) {
+                if($value["id_raw_material"] && $value["id_raw_material"][0] && $value["id_raw_material"][0]["id_raw_material"]){
+                    $rawMaterial = RawMaterial::findOrFail($value["id_raw_material"][0]["id_raw_material"]);
+                    $item = new OrderSupplierItem();
+                    $item->quantity = $value["quantity"];
+                    $item->square_meter = $value["square_meter"];
+                    $item->id_order_supplier = $element->id;
+                    $item->id_raw_material = $rawMaterial->id;
+                    $item->save();
+                }
+            }
             $path = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'? public_path().'\pdf' : public_path().'/pdf';
             if(!File::exists($path)) {
                 File::makeDirectory($path, 0777, true, true);
@@ -204,8 +221,7 @@ class ProviderController extends Controller
 
         
     }
-	public function  pdf()
-	{
+	public function pdf(){
 		try {
             $order = OrderSupplier::inRandomOrder()->first();
             // return view('pdfs.test');
