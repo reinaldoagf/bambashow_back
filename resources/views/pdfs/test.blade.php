@@ -1053,8 +1053,8 @@
     </div>
 
     <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-      <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #37a69d;">
-        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" style="background-color: #37a69d;"><td style="width: 600px" class="w560"><![endif]-->
+      <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #860a54;">
+        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" style="background-color: #860a54;"><td style="width: 600px" class="w560"><![endif]-->
         <div class="column" style="text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
 
           <div style="Margin-left: 40px;Margin-right: 20px;Margin-top: 15px;Margin-bottom: 15px;">

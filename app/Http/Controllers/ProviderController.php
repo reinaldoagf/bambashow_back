@@ -51,7 +51,7 @@ class ProviderController extends Controller
             ], 500);
         }
     } 
-    public function create(Request $request,$id){
+    public function create(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:45',
             'email'=> 'required|string|email|max:100|unique:providers',
@@ -69,16 +69,11 @@ class ProviderController extends Controller
             return response()->json($validator->errors(), 400);
         }
         try {
-            $element= Provider::find($id);
-            if(is_null($element)){
-                return response()->json(['message'=>'Proveedor no existente'],404);
-            }
-            $element->fill($request->all());
+            $element= Provider::create($request->all());
             $response = [
-                'message'=> 'Proveedor actualizado satisfactoriamente',
-                'data' => $element,
+                'message'=> 'Proveedor creado satisfactoriamente',
+                'data' => Provider::findOrFail($element->id),
             ];
-            $element->update();
             return response()->json($response, 200);          
         } catch (\Exception $e) {
             return response()->json([

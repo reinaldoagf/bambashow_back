@@ -24,7 +24,7 @@ class CreateOrderSupplierItemsTable extends Migration
             $table->unsignedBigInteger('id_raw_material');
             $table->foreign('id_raw_material')
                 ->references('id')->on('raw_materials')
-                ->onDelete('cascade');                
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

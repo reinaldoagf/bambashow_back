@@ -21,7 +21,7 @@ class OrderSupplierItem extends Model
     public function orderSupplier()
     {
         return $this->belongsTo(OrderSupplier::class);
-    }    
+    }
     public function raw_material()
     {
         return $this->hasOne(RawMaterial::class,'id','id_raw_material');
