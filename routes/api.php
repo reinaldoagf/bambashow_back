@@ -7,6 +7,7 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\RawMaterialController;
 use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +67,12 @@ Route::group(['middleware' => [],'prefix' => 'categories'], function() {
 	Route::post('/create', [ProductCategoryController::class, 'create']);
 	Route::put('/update/{id}', [ProductCategoryController::class, 'update']);
 	Route::delete('/delete/{id}', [ProductCategoryController::class, 'delete']);
+});
+
+Route::group(['middleware' => [],'prefix' => 'products'], function() {
+	Route::get('/', [ProductController::class, 'all']);
+	Route::get('/get/{id}', [ProductController::class, 'get']);
+	Route::post('/create', [ProductController::class, 'create']);
+	Route::put('/update/{id}', [ProductController::class, 'update']);
+	Route::delete('/delete/{id}', [ProductController::class, 'delete']);
 });

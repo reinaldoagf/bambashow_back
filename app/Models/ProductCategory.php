@@ -12,7 +12,7 @@ class ProductCategory extends Model
     protected $fillable = [
         'name',
     ];
-    protected $with = ['products'];
+    // protected $with = ['products'];
     public function products()
     {
         return $this->hasMany(Product::class,'id_product_category');

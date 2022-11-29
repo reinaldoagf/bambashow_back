@@ -19,7 +19,7 @@ class ProductCategoryTableSeeder extends Seeder
         foreach (["Alta definición", "Vinil textil", "Estampado"] as $key => $value) {
             $category=new ProductCategory();
             $category->name=$value;
-            $category->description=$faker->text;            
+            $category->description=$faker->text;
             $category->save();
         }
     }
