@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
 
-class LandingSectionProductCard extends Model
+class HomeSectionProductCard extends Model
 {
     use HasFactory;
     protected $fillable = [
         'id_product',
-        'id_landing_section',
+        'id_Home_section',
     ];
     protected $with = ['product'];
     public function product()

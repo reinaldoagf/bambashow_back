@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLandingSectionListItemsTable extends Migration
+class CreateHomeSectionListItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateLandingSectionListItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('landing_section_list_items', function (Blueprint $table) {
+        Schema::create('home_section_list_items', function (Blueprint $table) {
             $table->id();
             $table->text('text')->nullable();
             $table->string('icon')->nullable();
             $table->string('theme')->nullable();
-            $table->unsignedBigInteger('id_landing_section');
-            $table->foreign('id_landing_section')
-                ->references('id')->on('landing_sections')
+            $table->unsignedBigInteger('id_home_section');
+            $table->foreign('id_home_section')
+                ->references('id')->on('home_sections')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateLandingSectionListItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('landing_section_list_items');
+        Schema::dropIfExists('home_section_list_items');
     }
 }

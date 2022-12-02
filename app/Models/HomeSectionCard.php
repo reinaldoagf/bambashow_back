@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LandingSectionCarouselItem extends Model
+class HomeSectionCard extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'image',
         'title',
+        'icon',
+        'theme',
         'description',
-        'id_landing_section',
+        'image',
+        'type',
+        'id_Home_section',
     ];
 }

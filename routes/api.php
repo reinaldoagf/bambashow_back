@@ -8,7 +8,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\RawMaterialController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\LandingController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
 
 /*
@@ -79,8 +79,8 @@ Route::group(['middleware' => [],'prefix' => 'products'], function() {
 	Route::delete('/delete/{id}', [ProductController::class, 'delete']);
 });
 
-Route::group(['middleware' => [],'prefix' => 'landing'], function() {
-	Route::get('/sections', [LandingController::class, 'sections']);
+Route::group(['middleware' => [],'prefix' => 'home'], function() {
+	Route::get('/sections', [HomeController::class, 'sections']);
 });
 
 Route::group(['middleware' => [],'prefix' => 'settings'], function() {

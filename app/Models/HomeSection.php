@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\LandingSectionCard;
-use App\Models\LandingSectionListItem;
-use App\Models\LandingSectionProductCard;
-use App\Models\LandingSectionCarouselItem;
+use App\Models\HomeSectionCard;
+use App\Models\HomeSectionListItem;
+use App\Models\HomeSectionProductCard;
+use App\Models\HomeSectionCarouselItem;
 
-class LandingSection extends Model
+class HomeSection extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -29,18 +29,18 @@ class LandingSection extends Model
     protected $with = ['cards','list_items','carousel_items','product_cards'];
     public function cards()
     {
-        return $this->hasMany(LandingSectionCard::class,'id_landing_section');
+        return $this->hasMany(HomeSectionCard::class,'id_Home_section');
     }
     public function list_items()
     {
-        return $this->hasMany(LandingSectionListItem::class,'id_landing_section');
+        return $this->hasMany(HomeSectionListItem::class,'id_Home_section');
     }
     public function carousel_items()
     {
-        return $this->hasMany(LandingSectionCarouselItem::class,'id_landing_section');
+        return $this->hasMany(HomeSectionCarouselItem::class,'id_Home_section');
     }
     public function product_cards()
     {
-        return $this->hasMany(LandingSectionProductCard::class,'id_landing_section');
+        return $this->hasMany(HomeSectionProductCard::class,'id_Home_section');
     }
 }

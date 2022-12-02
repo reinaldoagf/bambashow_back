@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\LandingSection;
+use App\Models\HomeSection;
 
-class LandingController extends Controller
+class HomeController extends Controller
 {
     public function sections(){
         try {
             $response = [
                 'message'=> 'Secciones',
-                'data' => LandingSection::all(),
+                'data' => HomeSection::all(),
             ];
             return response()->json($response, 200);
         } catch (\Exception $e) {

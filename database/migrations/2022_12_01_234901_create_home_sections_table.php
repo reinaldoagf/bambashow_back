@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLandingSectionsTable extends Migration
+class CreateHomeSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLandingSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('landing_sections', function (Blueprint $table) {
+        Schema::create('home_sections', function (Blueprint $table) {
             $table->id();
             $table->string('key');
             $table->string('theme')->nullable();
@@ -37,6 +37,6 @@ class CreateLandingSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('landing_sections');
+        Schema::dropIfExists('home_sections');
     }
 }

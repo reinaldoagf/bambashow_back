@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LandingSectionCard extends Model
+class HomeSectionListItem extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title',
+        'text',
         'icon',
         'theme',
-        'description',
-        'image',
-        'type',
-        'id_landing_section',
+        'id_Home_section',
     ];
+
 }
