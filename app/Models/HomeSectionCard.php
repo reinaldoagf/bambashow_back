@@ -15,6 +15,6 @@ class HomeSectionCard extends Model
         'description',
         'image',
         'type',
-        'id_Home_section',
+        'id_home_section',
     ];
 }

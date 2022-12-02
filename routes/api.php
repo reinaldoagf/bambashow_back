@@ -81,6 +81,7 @@ Route::group(['middleware' => [],'prefix' => 'products'], function() {
 
 Route::group(['middleware' => [],'prefix' => 'home'], function() {
 	Route::get('/sections', [HomeController::class, 'sections']);
+	Route::put('/sections/update/{id}', [HomeController::class, 'sectionsUpdate']);
 });
 
 Route::group(['middleware' => [],'prefix' => 'settings'], function() {

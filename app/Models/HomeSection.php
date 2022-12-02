@@ -29,18 +29,18 @@ class HomeSection extends Model
     protected $with = ['cards','list_items','carousel_items','product_cards'];
     public function cards()
     {
-        return $this->hasMany(HomeSectionCard::class,'id_Home_section');
+        return $this->hasMany(HomeSectionCard::class,'id_home_section');
     }
     public function list_items()
     {
-        return $this->hasMany(HomeSectionListItem::class,'id_Home_section');
+        return $this->hasMany(HomeSectionListItem::class,'id_home_section');
     }
     public function carousel_items()
     {
-        return $this->hasMany(HomeSectionCarouselItem::class,'id_Home_section');
+        return $this->hasMany(HomeSectionCarouselItem::class,'id_home_section');
     }
     public function product_cards()
     {
-        return $this->hasMany(HomeSectionProductCard::class,'id_Home_section');
+        return $this->hasMany(HomeSectionProductCard::class,'id_home_section');
     }
 }

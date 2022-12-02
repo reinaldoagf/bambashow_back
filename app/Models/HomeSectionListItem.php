@@ -12,7 +12,7 @@ class HomeSectionListItem extends Model
         'text',
         'icon',
         'theme',
-        'id_Home_section',
+        'id_home_section',
     ];
 
 }

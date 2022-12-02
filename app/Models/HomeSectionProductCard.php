@@ -11,7 +11,7 @@ class HomeSectionProductCard extends Model
     use HasFactory;
     protected $fillable = [
         'id_product',
-        'id_Home_section',
+        'id_home_section',
     ];
     protected $with = ['product'];
     public function product()
