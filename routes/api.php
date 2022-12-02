@@ -9,6 +9,7 @@ use App\Http\Controllers\RawMaterialController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,4 +81,8 @@ Route::group(['middleware' => [],'prefix' => 'products'], function() {
 
 Route::group(['middleware' => [],'prefix' => 'landing'], function() {
 	Route::get('/sections', [LandingController::class, 'sections']);
+});
+
+Route::group(['middleware' => [],'prefix' => 'settings'], function() {
+	Route::get('/content', [SettingsController::class, 'content']);
 });
