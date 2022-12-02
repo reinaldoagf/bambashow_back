@@ -8,6 +8,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\RawMaterialController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,4 +76,8 @@ Route::group(['middleware' => [],'prefix' => 'products'], function() {
 	Route::post('/create', [ProductController::class, 'create']);
 	Route::put('/update/{id}', [ProductController::class, 'update']);
 	Route::delete('/delete/{id}', [ProductController::class, 'delete']);
+});
+
+Route::group(['middleware' => [],'prefix' => 'landing'], function() {
+	Route::get('/sections', [LandingController::class, 'sections']);
 });
