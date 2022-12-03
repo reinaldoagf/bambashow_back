@@ -9,6 +9,7 @@ use App\Models\HomeSectionListItem;
 use App\Models\HomeSectionCard;
 use App\Models\HomeSectionCarouselItem;
 use App\Models\HomeSectionProductCard;
+use Faker\Factory;
 
 class HomeSectionTableSeeder extends Seeder
 {
@@ -17,13 +18,13 @@ class HomeSectionTableSeeder extends Seeder
      *
      * @return void
      */
-    private function servicesSection(){
+    private function servicesSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="services";
         $homeSection->icon_side="ni ni-settings-gear-65";
         $homeSection->icon_side_theme="success";
         $homeSection->title_side="Servicios";
-        $homeSection->description_side="Tenemos las mejores promociones";
+        $homeSection->description_side=$faker->text;
         $homeSection->image_side="https://static.vecteezy.com/system/resources/previews/001/197/380/non_2x/promotion-ribbon-png.png";
         $homeSection->save();
         foreach ([[
@@ -51,14 +52,14 @@ class HomeSectionTableSeeder extends Seeder
             $homeSectionListItem->save();
         }
     }
-    private function designsSection(){
+    private function designsSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="designs";
         $homeSection->theme="gradient-info";
         $homeSection->icon_side="ni ni-settings";
         $homeSection->icon_side_theme="success";
         $homeSection->title_side="Diseños";
-        $homeSection->description_side="Diseñamos nuestros productos";
+        $homeSection->description_side=$faker->text;
         $homeSection->save();
         foreach ([[
             "title"=>"Diseños según pedidos del cliente",
@@ -75,14 +76,14 @@ class HomeSectionTableSeeder extends Seeder
             $homeSectionCard->save();
         }
     }
-    private function impressionsSection(){
+    private function impressionsSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="impressions";
         $homeSection->theme="gradient-warning";
         $homeSection->icon_side="ni ni-building text-white";
         $homeSection->icon_side_theme="warning";
         $homeSection->title_side="Impresiones";
-        $homeSection->description_side="Hacemos impresiones en franelas, tazas, llaveros...";
+        $homeSection->description_side=$faker->text;
         $homeSection->save();
         foreach ([[
             "image"=>"https://i.pinimg.com/474x/dc/d5/12/dcd512b790614fcdc3b219eb97649c37.jpg",
@@ -131,14 +132,14 @@ class HomeSectionTableSeeder extends Seeder
             $homeSectionCard->save();
         }
     }
-    private function quotesSection(){
+    private function quotesSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="quotes";
         $homeSection->theme="gradient-info";
         $homeSection->icon_side="ni ni-settings";
         $homeSection->icon_side_theme="warning";
         $homeSection->title_side="Cotizaciones";
-        $homeSection->description_side="Cotizamos tus pedidos con los mejores precios";
+        $homeSection->description_side=$faker->text;
         $homeSection->save();
         foreach ([[
             "title"=>"Cotizaciones de pedidos",
@@ -155,14 +156,14 @@ class HomeSectionTableSeeder extends Seeder
             $homeSectionCard->save();
         }
     }
-    private function clothingSection(){
+    private function clothingSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="clothing";
         $homeSection->theme="gradient-danger";
         $homeSection->icon_side="ni ni-building text-white";
         $homeSection->icon_side_theme="danger";
         $homeSection->title_side="Confecciones";
-        $homeSection->description_side="Confeccionamos tus pedidos...";
+        $homeSection->description_side=$faker->text;
         $homeSection->save();
         foreach ([[
             "image"=>"https://i.pinimg.com/474x/dc/d5/12/dcd512b790614fcdc3b219eb97649c37.jpg",
@@ -205,12 +206,12 @@ class HomeSectionTableSeeder extends Seeder
             $homeSectionCard->save();
         }
     }
-    private function catalogSection(){
+    private function catalogSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="catalog";
         $homeSection->theme="gradient-success";
         $homeSection->title="Catálogo de productos";
-        $homeSection->description="Catálogo de productos";
+        $homeSection->description=$faker->text;
         $homeSection->save();
         foreach ([[
             "title"=>"Ver todos los productos del catálogo",
@@ -234,12 +235,12 @@ class HomeSectionTableSeeder extends Seeder
             $homeSectionProductCard->save();
         }
     }
-    private function promotionsSection(){
+    private function promotionsSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="promotions";
         $homeSection->theme="gradient-success";
         $homeSection->title="Promociones";
-        $homeSection->description="Aprovecha nuestras promociones";
+        $homeSection->description=$faker->text;
         $homeSection->save();
         foreach ([[
             "image"=>"https://www.kindpng.com/picc/m/427-4274672_ofertas-y-promociones-png-transparent-png.png",
@@ -266,23 +267,24 @@ class HomeSectionTableSeeder extends Seeder
             $homeSectionCarouselItem->save();
         }
     }
-    private function contactUsSection(){
+    private function contactUsSection($faker){
         $homeSection = new HomeSection();
         $homeSection->key="contact-us";
         $homeSection->theme="gradient-default";
         $homeSection->title="Contáctanos";
-        $homeSection->description="Ponte en contacto con nosotros";
+        $homeSection->description=$faker->text;
         $homeSection->save();        
     }
     public function run()
     {
-        $this->servicesSection();
-        $this->designsSection(); 
-        $this->impressionsSection();
-        $this->quotesSection();
-        $this->clothingSection();
-        $this->catalogSection();
-        $this->promotionsSection();
-        $this->contactUsSection();
+        $faker = Factory::create();
+        $this->servicesSection($faker);
+        $this->designsSection($faker); 
+        $this->impressionsSection($faker);
+        $this->quotesSection($faker);
+        $this->clothingSection($faker);
+        $this->catalogSection($faker);
+        $this->promotionsSection($faker);
+        $this->contactUsSection($faker);
     }
 }
