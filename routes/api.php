@@ -77,6 +77,7 @@ Route::group(['middleware' => [],'prefix' => 'products'], function() {
 	Route::post('/create', [ProductController::class, 'create']);
 	Route::put('/update/{id}', [ProductController::class, 'update']);
 	Route::delete('/delete/{id}', [ProductController::class, 'delete']);
+	Route::get('/orders', [ProductController::class, 'orders']);
 });
 
 Route::group(['middleware' => [],'prefix' => 'home'], function() {

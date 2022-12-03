@@ -4,19 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
-class ProductStock extends Model
+class OrderProductDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'quatity',
         'size',
-        'quantity',
-        'id_product'
+        'id_product',
+        'id_order_product',
     ];
-    
     protected $with = ['product'];
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasOne(Product::class,'id','id_product');
     }
 }

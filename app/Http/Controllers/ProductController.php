@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
+use App\Models\OrderProduct;
 
 class ProductController extends Controller
 {
@@ -111,6 +112,21 @@ class ProductController extends Controller
                 'data' => $element,
             ];
             $element->delete();
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ha ocurrido un error al tratar de eliminar los datos.',
+                'error' => $e->getMessage(),
+                'linea' => $e->getLine()
+            ], 500);
+        }
+    }
+    public function orders(){
+        try {
+            $response = [
+                'message'=> 'Lista de pedidos de productos',
+                'data' => OrderProduct::all(),
+            ];
             return response()->json($response, 200);
         } catch (\Exception $e) {
             return response()->json([
