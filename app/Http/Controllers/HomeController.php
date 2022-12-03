@@ -107,4 +107,24 @@ class HomeController extends Controller
             ], 500);
         }
     }
+    public function listItemDelete($id){
+        try {
+            $element = HomeSectionListItem::find($id);
+            if(is_null($element)){
+                return response()->json(['message'=>'El elemento no existente'],404);
+            }
+            $response = [
+                'message'=> 'Elemento eliminado satisfactoriamente',
+                'data' => $element,
+            ];
+            $element->delete();
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ha ocurrido un error al tratar de eliminar los datos.',
+                'error' => $e->getMessage(),
+                'linea' => $e->getLine()
+            ], 500);
+        }
+    }
 }

@@ -83,6 +83,7 @@ Route::group(['middleware' => [],'prefix' => 'home'], function() {
 	Route::get('/sections', [HomeController::class, 'sections']);
 	Route::get('/sections/get/{id}', [HomeController::class, 'sectionsGet']);
 	Route::put('/sections/update/{id}', [HomeController::class, 'sectionsUpdate']);
+	Route::delete('/sections/list-item/delete/{id}', [HomeController::class, 'listItemDelete']);
 });
 
 Route::group(['middleware' => [],'prefix' => 'settings'], function() {
