@@ -66,18 +66,10 @@ class HomeController extends Controller
                 'separator_bottom'=>$request->get('separator_bottom'),
             ]);
             //photo
-            /* if ($request->image_side || $request->hasFile('image_side')){                
-                $path = public_path().'/images';
-                if(!File::exists($path)) {
-                    File::makeDirectory($path, 0777, true, true);
-                }
-                $image = $request->file('image_side');
-                if(!is_null($image)){
-                    $filename = '/images/'.time() . '-main-face.jpg';
-                    $element->image_side = $filename?asset($filename):'https://www.tibs.org.tw/images/default.jpg';
-                    Image::make($image)->orientate()->save(public_path($filename));
-                }
-            } */
+            if ($request->get('image_side')){   
+                $image = $this->base64_to_jpeg($request->get('image_side'),'images/image-side-'.time().'.png');
+                $element->image_side = asset($image);
+            }
             foreach ($request->get("list_items") as $key => $value) {
                 if($value["id"]){
                     $homeSectionListItem = HomeSectionListItem::findOrFail($value["id"]);
@@ -126,5 +118,22 @@ class HomeController extends Controller
                 'linea' => $e->getLine()
             ], 500);
         }
+    }
+    private function base64_to_jpeg($base64_string, $output_file) {
+        // open the output file for writing
+        $ifp = fopen( $output_file, 'wb' ); 
+    
+        // split the string on commas
+        // $data[ 0 ] == "data:image/png;base64"
+        // $data[ 1 ] == <actual base64 string>
+        $data = explode( ',', $base64_string );
+    
+        // we could add validation here with ensuring count( $data ) > 1
+        fwrite( $ifp, base64_decode( $data[ 1 ] ) );
+    
+        // clean up the file resource
+        fclose( $ifp ); 
+    
+        return $output_file; 
     }
 }
