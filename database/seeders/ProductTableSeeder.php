@@ -28,7 +28,7 @@ class ProductTableSeeder extends Seeder
                 "https://http2.mlstatic.com/D_NQ_NP_986083-MLV45398493563_032021-O.jpg"
             ],
         ], [
-            "name"=>"Soeter",
+            "name"=>"Sweater",
             "images"=>[
                 "https://http2.mlstatic.com/D_NQ_NP_750934-MLV50167128418_062022-O.jpg",
                 "https://http2.mlstatic.com/D_NQ_NP_851023-MLV50324002319_062022-W.jpg",
