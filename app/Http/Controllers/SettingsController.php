@@ -7,11 +7,11 @@ use App\Models\SettingsContentSocialNetworks;
 
 class SettingsController extends Controller
 {
-    public function content(){
+    public function socialNetworks(){
         try {
             $response = [
                 "message"=> "Configuración de contenido",
-                "data" => ["social_networks"=>SettingsContentSocialNetworks::all()],
+                "data" => SettingsContentSocialNetworks::all(),
             ];
             return response()->json($response, 200);
         } catch (\Exception $e) {
