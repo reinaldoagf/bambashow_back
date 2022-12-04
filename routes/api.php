@@ -89,4 +89,5 @@ Route::group(['middleware' => [],'prefix' => 'home'], function() {
 
 Route::group(['middleware' => [],'prefix' => 'settings'], function() {
 	Route::get('/social-networks', [SettingsController::class, 'socialNetworks']);
+	Route::get('/accounts-bank', [SettingsController::class, 'accountsBank']);
 });

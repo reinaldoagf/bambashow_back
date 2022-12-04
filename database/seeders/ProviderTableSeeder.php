@@ -12,7 +12,7 @@ class ProviderTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {        
+    {
         $faker = Factory::create();
 
         foreach ([0,1,2,3,4,5] as $key => $value) {

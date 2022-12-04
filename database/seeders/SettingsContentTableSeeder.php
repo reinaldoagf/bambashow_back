@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\SettingsContentSocialNetworks;
+use App\Models\SettingsContentAccountBank;
+use Faker\Factory;
+
 class SettingsContentTableSeeder extends Seeder
 {
     /**
@@ -13,6 +16,7 @@ class SettingsContentTableSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Factory::create();
         foreach ([[
             "name"=>"twitter",
             "icon"=>"twitter",
@@ -30,6 +34,66 @@ class SettingsContentTableSeeder extends Seeder
             "tooltip"=>"Follow us",
         ]] as $key => $value1) {
             SettingsContentSocialNetworks::create($value1);
+        }
+        foreach ([
+            [
+                'bank'=>'mercantil',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ], 
+            [
+                'bank'=>'provincial',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ], 
+            [
+                'bank'=>'banco de venezuela',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ], 
+            [
+                'bank'=>'banco bicentenario',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ],
+            [
+                'bank'=>'banesco',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ],
+            [
+                'bank'=>'banco exterior',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ],
+            [
+                'bank'=>'banco nacional de crédito',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ],
+            [
+                'bank'=>'bod',
+                'account_number'=>$faker->numerify('###################'),
+                'email'=>$faker->email,
+                'identity_card'=>$faker->numerify('V-#########'),
+                'phone'=>$faker->phoneNumber
+            ],
+        ] as $key => $value) {
+            SettingsContentAccountBank::create($value);
         }
     }
 }
