@@ -10,6 +10,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Rol;
 use App\Models\ShoppingCart;
+use App\Models\OrderProduct;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -64,6 +65,10 @@ class User extends Authenticatable implements JWTSubject
     }
     public function cart()
     {
-        return $this->hasMany(ShoppingCart::class, 'user');
+        return $this->hasMany(ShoppingCart::class, 'id_user');
+    }
+    public function orders()
+    {
+        return $this->hasMany(OrderProduct::class, 'id_user');
     }
 }

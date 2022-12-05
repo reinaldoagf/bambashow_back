@@ -9,16 +9,16 @@ class ShoppingCart extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user',
-        'product'
+        'id_user',
+        'id_product'
     ];
     protected $with = ['product'];
     public function user()
     {
-        return $this->belongsTo(User::class,'id','user');
+        return $this->belongsTo(User::class,'id','id_user');
     }
     public function product()
     {
-        return $this->hasOne(Product::class,'id','product');
+        return $this->hasOne(Product::class,'id','id_product');
     }
 }
