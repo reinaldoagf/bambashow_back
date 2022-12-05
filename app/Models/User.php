@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Rol;
+use App\Models\ShoppingCart;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -56,9 +57,13 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-    protected $with = ['rol'];
+    protected $with = ['rol','cart'];
     public function rol()
     {
         return $this->hasOne(Rol::class,'id','id_rol');
+    }
+    public function cart()
+    {
+        return $this->hasMany(ShoppingCart::class, 'user');
     }
 }
