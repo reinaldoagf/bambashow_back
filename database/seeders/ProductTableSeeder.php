@@ -41,6 +41,22 @@ class ProductTableSeeder extends Seeder
                 "https://http2.mlstatic.com/D_NQ_NP_897227-MLV49718695105_042022-O.jpg",
                 "https://www.amiregalo.es/photo/mug-messsage-ensoleille1.jpg"
             ],
+        ], [
+            "name"=>"Franela",
+            "images"=>[
+                "https://static.wixstatic.com/media/0f9c41_964ec98e575d424581f3616c7bb7220c~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+            ],
+        ], [
+            "name"=>"Llaveros",
+            "images"=>[
+                "https://i.pinimg.com/736x/82/69/1b/82691b6501e4937b39242b67dd8714b0.jpg",
+                "https://www.puntoservicios.cl/wp-content/uploads/2021/06/0456-3-llavero-redondo-sublimable-plata-estampados-grabados-impresion-fotografia-ceramicas-trofeos-galvanos-copia-de-llaves.jpg",
+            ],
+        ], [
+            "name"=>"Sweater",
+            "images"=>[
+                "https://http2.mlstatic.com/D_NQ_NP_926588-MLV47791914309_102021-O.jpg"
+            ],
         ]] as $key => $value1) {
             $category= ProductCategory::inRandomOrder()->first();
             $product=new Product();
