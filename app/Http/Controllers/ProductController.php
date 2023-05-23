@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
 use App\Models\OrderProduct;
+use App\Models\ProductStock;
 
 class ProductController extends Controller
 {
@@ -58,6 +59,13 @@ class ProductController extends Controller
         }
         try {
             $element= Product::create($request->all());
+            foreach ($request->get('stock') as $key => $value) {
+                ProductStock::create([
+                    'size'=>$value['size'] ? $value['size'][0] : null,
+                    'quantity'=>$value['quantity'],
+                    'id_product'=>$element->id
+                ]);
+            }
             $response = [
                 'message'=> 'Producto creada satisfactoriamente',
                 'data' => Product::findOrFail($element->id),
